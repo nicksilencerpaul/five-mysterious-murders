@@ -8,21 +8,19 @@
   <style>
     html,
     body {
-      width: 100%;
-      height: 100%;
       margin: 0;
       overflow-x: auto;
     }
 
     body {
       --bg: url("bg.jpg");
-      min-height: 100vh;
-      min-height: 100dvh;
+      min-width: 1000px;
       background-image: var(--bg);
       background-repeat: no-repeat;
       background-position: center top;
-      background-size: auto 100%;
+      background-size: 1920px 1080px;
       background-color: #000;
+      font-family: Arial, Helvetica, sans-serif;
     }
 
     @keyframes pulse {
@@ -44,59 +42,100 @@
 
     #download {
       position: absolute;
-      top: 45%;
+      top: 475px;
       left: calc(50% - 200px);
       width: 400px;
       height: 200px;
       animation: pulse 3.5s infinite;
+    }
 
-      &:before {
-        content: ' ';
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        width: 100%;
-        height: 100%;
-        background-image: url(button.png);
-        visibility: visible;
-        z-index: 1;
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-      }
+    #download::before {
+      content: ' ';
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 100%;
+      background-image: url(button.png);
+      visibility: visible;
+      z-index: 1;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
 
-      &:after {
-        content: ' ';
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        width: 100%;
-        height: 100%;
-        background-image: url(button-hover.png);
-        visibility: hidden;
-        z-index: 2;
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-      }
+    #download::after {
+      content: ' ';
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 100%;
+      background-image: url(button-hover.png);
+      visibility: hidden;
+      z-index: 2;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
 
-      &:hover {
-        &::before {
-          visibility: hidden;
-        }
+    #download:hover::before {
+      visibility: hidden;
+    }
 
-        &:after {
-          visibility: visible;
-        }
-      }
+    #download:hover::after {
+      visibility: visible;
+    }
+
+    #content {
+      position: absolute;
+      top: 775px;
+      left: calc(50% - 300px);
+      width: 600px;
+      padding: 20px 15px;
+      font-size: 20px;
+      background: #121212;
+      color: #fff;
+      text-align: center;
+      text-transform: uppercase;
+      border-radius: 10px;
+      background: linear-gradient(to bottom, #010101, #00000069);
+    }
+
+    .link {
+      text-transform: none;
+      color: #b80505 !important;
+      display: inline-flex;
+      margin-top: 10px;
+      text-decoration: none !important;
+    }
+
+    .link:hover {
+      opacity: 0.8;
+    }
+
+    #wrapper {
+      position: relative;
+      width: 100%;
+      min-height: 1080px;
+      padding-bottom: 25px;
     }
   </style>
 </head>
 
 <body>
-
-  <a href="https://drive.google.com/file/d/1uFTjTj3RTpMdzv4sR9QmBLPODTm1eMck/view?usp=sharing" target="_blank"
-    id="download"></a>
+  <div id="wrapper">
+    <a href="https://drive.google.com/file/d/1uFTjTj3RTpMdzv4sR9QmBLPODTm1eMck/view?usp=sharing" target="_blank"
+      id="download"></a>
+    <div id="content">
+      The simulator of a paranormal serial killer
+      <br>
+      <a class="link" target="_blank"
+        href="https://store.steampowered.com/app/3275460/Five_Mysterious_Murders__Part_2/">Steam page</a>
+      <br>
+      <a class="link" href="mailto:nicksilencerpaul@gmail.com">Contact email - nicksilencerpaul@gmail.com</a>
+    </div>
+  </div>
 </body>
 
 </html>
