@@ -3,24 +3,24 @@
 
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=1024">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/jpeg" href="favicon.jpg">
   <title>Five Mysterious Murders</title>
   <style>
     html,
     body {
       margin: 0;
       overflow-x: auto;
+      font-family: "Faustina";
     }
 
     body {
       --bg: url("bg.jpg");
-      min-width: 1000px;
       background-image: var(--bg);
       background-repeat: no-repeat;
       background-position: center top;
-      background-size: 1920px 1080px;
+      background-size: cover;
       background-color: #000;
-      font-family: Arial, Helvetica, sans-serif;
     }
 
     @keyframes pulse {
@@ -41,12 +41,11 @@
     }
 
     #download {
-      position: absolute;
-      top: 475px;
-      left: calc(50% - 200px);
+      display: block;
       width: 400px;
       height: 200px;
       animation: pulse 3.5s infinite;
+      max-width: 100%;
     }
 
     #download::before {
@@ -79,61 +78,98 @@
       background-position: center;
     }
 
-    #download:hover::before {
+    #coffin:hover #download:before {
       visibility: hidden;
     }
 
-    #download:hover::after {
+    #coffin:hover #download:after {
       visibility: visible;
     }
 
-    #content {
-      position: absolute;
-      top: 775px;
-      left: calc(50% - 300px);
-      width: 600px;
-      padding: 20px 15px;
-      font-size: 20px;
-      background: #121212;
-      color: #fff;
-      text-align: center;
-      text-transform: uppercase;
-      border-radius: 10px;
-      background: linear-gradient(to bottom, #010101, #00000069);
-    }
-
-    .link {
-      text-transform: none;
-      color: #b80505 !important;
-      display: inline-flex;
-      margin-top: 10px;
-      text-decoration: none !important;
-    }
-
-    .link:hover {
-      opacity: 0.8;
-    }
 
     #wrapper {
       position: relative;
       width: 100%;
-      min-height: 1080px;
+      min-height: 100vh;
       padding-bottom: 25px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-items: center;
+    }
+
+    #steam-page {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.2s ease-in-out;
+      max-width: 100%;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #565656 !important;
+      font-size: 20px;
+      text-transform: uppercase;
+      text-decoration: none;
+      text-align: center;
+      letter-spacing: 2px;
+      font-weight: bold;
+      padding-right: 25px;
+    }
+
+    #steam-page:hover {
+      color: #566329 !important;
+    }
+
+    #coffin:hover #steam-page {
+      opacity: 1;
+    }
+
+    #coffin {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      position: relative;
+    }
+
+    #coffin:before {
+      content: ' ';
+      position: absolute;
+      top: -130px;
+      width: 800px;
+      min-height: 590px;
+      background-image: url(glass.png);
+      z-index: -1;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      left: calc(50% - 400px);
+    }
+
+    #logo {
+      margin-top: 100px;
+      background-image: url(logo.png);
+      width: 100%;
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      height: 300px;
+
     }
   </style>
 </head>
 
 <body>
   <div id="wrapper">
-    <a href="https://drive.google.com/file/d/1uFTjTj3RTpMdzv4sR9QmBLPODTm1eMck/view?usp=sharing" target="_blank"
-      id="download"></a>
-    <div id="content">
-      The simulator of a paranormal serial killer
-      <br>
-      <a class="link" target="_blank"
-        href="https://store.steampowered.com/app/3275460/Five_Mysterious_Murders__Part_2/">Steam page</a>
-      <br>
-      <a class="link" href="mailto:nicksilencerpaul@gmail.com">Contact email - nicksilencerpaul@gmail.com</a>
+    <div id="logo"></div>
+    <div id="coffin">
+      <a href="https://drive.google.com/file/d/1uFTjTj3RTpMdzv4sR9QmBLPODTm1eMck/view?usp=sharing" target="_blank"
+        id="download"></a>
+      <a href="https://store.steampowered.com/app/3275460/Five_Mysterious_Murders__Part_2/" target="_blank"
+        id="steam-page">Steam Page</a>
     </div>
   </div>
 </body>
