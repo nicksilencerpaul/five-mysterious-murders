@@ -14,28 +14,18 @@
       font-family: "Faustina";
     }
 
-    @keyframes float-bg {
-      0% {
-        background-position: 0px 0px;
-      }
-
-      50% {
-        background-position: 10px -10px;
-      }
-
-      100% {
-        background-position: 0px 0px;
-      }
-    }
 
     body {
+      background: radial-gradient(circle at top left, #170101 0%, #000000 70%),
+        linear-gradient(180deg, #1a0000 0%, #000000 100%);
       --bg: url("bg.jpg");
       background-image: var(--bg);
       background-repeat: no-repeat;
       background-position: center top;
       background-size: cover;
       background-color: #000;
-      animation: float-bg 3s linear infinite;
+
+      /* background-blend-mode: overlay; */
     }
 
     @keyframes pulse {
@@ -115,28 +105,47 @@
 
     #steam-page {
       margin-top: 20px;
-      display: flex;
-      flex-direction: column;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      opacity: 0;
-      transition: opacity 0.2s ease-in-out;
-      max-width: 100%;
+      padding: 14px 36px;
+      border-radius: 12px;
+
       font-family: Arial, Helvetica, sans-serif;
-      color: #565656 !important;
       font-size: 20px;
-      text-transform: uppercase;
-      text-decoration: none;
-      text-align: center;
-      letter-spacing: 2px;
       font-weight: bold;
-      padding-right: 25px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-decoration: none;
+
+      color: #fff;
+      background: linear-gradient(135deg, #8b0000, #d81e1e, #ff4444);
+      background-size: 200% 200%;
+      box-shadow: 0 8px 25px rgba(255, 0, 0, 0.3);
+      cursor: pointer;
+
+      opacity: 0;
+      transition:
+        opacity 0.3s ease-in-out,
+        background-position 0.6s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
     }
 
+    /* Hover effects: glowing + animated gradient */
     #steam-page:hover {
-      color: #f44336 !important;
+      background-position: right center;
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 12px 35px rgba(255, 0, 0, 0.45);
     }
 
+    /* Press effect */
+    #steam-page:active {
+      transform: translateY(2px) scale(0.97);
+      box-shadow: 0 5px 15px rgba(255, 0, 0, 0.25);
+    }
+
+    /* When coffin hovered, fade in link */
     #coffin:hover #steam-page {
       opacity: 1;
     }
@@ -153,15 +162,15 @@
     #coffin:before {
       content: ' ';
       position: absolute;
-      top: -160px;
-      width: 800px;
+      top: -250px;
+      width: 700px;
       min-height: 590px;
-      background-image: url(glass.png);
+      background-image: url(mobs.png);
       z-index: -1;
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
-      left: calc(50% - 400px);
+      left: calc(50% - 350px);
     }
 
     #logo {
@@ -172,6 +181,7 @@
       background-size: contain;
       background-repeat: no-repeat;
       height: 300px;
+      margin-bottom: 90px;
 
     }
   </style>
